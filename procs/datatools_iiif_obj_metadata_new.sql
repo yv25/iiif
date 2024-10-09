@@ -337,7 +337,10 @@ BEGIN
       'obj', 
       O.objectid, 
       'logo', 
-      'https://artgallery.yale.edu/sites/default/files/2023-03/LUX_YUAG_logo.png', 
+      case 
+		when O.DepartmentID<>92 then 
+		'https://artgallery.yale.edu/sites/default/files/2023-03/LUX_YUAG_logo.png'
+		else 'https://publications.artgallery.yale.edu/images/YSM.png' end,
       '18'
     FROM Objects O
     WHERE O.EnteredDate >= @lastSuccessfulUpdate 
